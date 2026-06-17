@@ -1,16 +1,15 @@
 package structuras.nodes;
 
-
 public class Node<T> {
     
     private T value;
     private Node<T> left;
-    private Node<T> rigth;
+    private Node<T> right; // Corrected spelling
 
-    public Node (T value){
+    public Node(T value) {
         this.value = value;
-        this.
-
+        this.left = null;  // Initialize left pointer
+        this.right = null; // Initialize right pointer
     }
 
     public T getValue() {
@@ -29,19 +28,16 @@ public class Node<T> {
         this.left = left;
     }
 
-    public Node<T> getRigth() {
-        return rigth;
+    public Node<T> getRight() {
+        return right;
     }
 
-    public void setRigth(Node<T> rigth) {
-        this.rigth = rigth;
+    public void setRight(Node<T> right) {
+        this.right = right;
     }
 
     @Override
     public String toString() {
-        return "Node [value=" + value + "]";
+        return "Node [   Raiz = " + value + "]";
     }
-    
-
-    
 }
