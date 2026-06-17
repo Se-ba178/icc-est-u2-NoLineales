@@ -5,11 +5,12 @@ import java.util.Queue;
 
 import structuras.nodes.Node;
 
-public class IntTree {
-    private Node<Integer> root;
+public class BinaryTree <T extends Comparable<T>>{
+
+    private Node<T> root;
     private int peso;  //Variable para hacer la complejidad de peso recursivo O(n)--> a O(1) con el getPeso creado nuevo 
 
-    public IntTree() {
+    public BinaryTree() {
         this.root = null;
     }
 
@@ -17,11 +18,11 @@ public class IntTree {
         return root == null;
     }
 
-    public Node<Integer> getRoot() {
+    public Node<T> getRoot() {
         return root;
     }
 
-    public void setRoot(Node<Integer> node) {
+    public void setRoot(Node<T> node) {
         root = node;
     }
 
@@ -30,26 +31,25 @@ public class IntTree {
         return peso;
     }
 
-    public void setRoot(Integer value) {
-        Node<Integer> node = new Node<Integer>(value);
+    public void setRoot(T value) {
+        Node<T> node = new Node<T>(value);
         root = node;
     }
 
-    public void insert(Integer value) {
-        Node<Integer> node = new Node<Integer>(value);
+    public void insert(T value) {
+        Node<T> node = new Node<T>(value);
         root = insertRecursive(root, node);
         peso ++ ; 
     }
 
     // Arbol binario creacion
-    private Node<Integer> insertRecursive(Node<Integer> actual, Node<Integer> nodeIngresado) {
+    private Node<T> insertRecursive(Node<T> actual, Node<T> nodeIngresado) {
         if (actual == null) {
             return nodeIngresado;
-
         }
         // Validar si es mayor o menor y decidir si lo ingreso a la derecha o a la
         // izquierda
-        if (actual.getValue() > nodeIngresado.getValue()) {
+        if (actual.getValue().compareTo(nodeIngresado.getValue()) > 0 ) {       //PREGUNTA DE PRUEBA 
             actual.setLeft(insertRecursive(actual.getLeft(), nodeIngresado)); /// Izquierda se guarda
         } else {
             actual.setRight(insertRecursive(actual.getRight(), nodeIngresado));// A la derecha
@@ -66,7 +66,7 @@ public class IntTree {
 
     }
 
-    private void preOrderRecursivo(Node<Integer> actual) {
+    private void preOrderRecursivo(Node<T> actual) {
         if (actual == null) {
             return;
         }
@@ -83,7 +83,7 @@ public class IntTree {
         posOrderRecursivo(root);
     }
 
-    private void posOrderRecursivo(Node<Integer> actual) {
+    private void posOrderRecursivo(Node<T> actual) {
         if (actual == null) {
             return;
         }
@@ -102,7 +102,7 @@ public class IntTree {
         inOrderRecursivo(root);
     }
 
-    private void inOrderRecursivo(Node<Integer> actual) {
+    private void inOrderRecursivo(Node<T> actual) {
         if (actual == null) {
             return;
         }
@@ -110,7 +110,7 @@ public class IntTree {
         inOrderRecursivo(actual.getLeft());
 
         // Visitar la raíz (nodo actual)
-        System.out.print(actual.getValue() + " ");
+        System.out.println(actual.getValue() + " ");
 
         // Recorrer subárbol derecho
         inOrderRecursivo(actual.getRight());
@@ -122,12 +122,12 @@ public class IntTree {
             return;
         }
 
-        Queue<Node<Integer>> cola = new LinkedList<>();
+        Queue<Node<T>> cola = new LinkedList<>();
         cola.add(root);
 
         while (!cola.isEmpty()) {
             // Sacamos el primer nodo de la cola
-            Node<Integer> actual = cola.poll();
+            Node<T> actual = cola.poll();
             System.out.print(actual.getValue() + " ");
 
             // Si el nodo tiene hijo izquierdo a la cola
@@ -149,7 +149,7 @@ public class IntTree {
         return alturaRecursivo(root);
     }
 
-    private int alturaRecursivo(Node<Integer> actual) {
+    private int alturaRecursivo(Node<T> actual) {
         // Caso base: si el nodo es nulo, la altura es 0
         if (actual == null) {
             return 0;
@@ -170,7 +170,7 @@ public class IntTree {
         
     }
 
-    private int pesoRecursivo(Node<Integer> actual) {
+    private int pesoRecursivo(Node<T> actual) {
         if(actual == null){
             return 0;
         }
