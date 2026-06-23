@@ -12,6 +12,7 @@ public class Ejercicio1 {
         printTree(binario.getRoot());
 
     }
+    
 
     public void printTree(Node<Integer> root) {
         System.out.println("Imprimiendo el arbol");

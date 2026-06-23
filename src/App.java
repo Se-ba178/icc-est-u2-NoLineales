@@ -11,11 +11,11 @@ import structuras.nodes.Node;
 public class App {
     public static void main(String[] args) throws Exception {
         // runIntTree();
-        // runPersonTree();
-        runEjercicio();
-        runEjercicio2();
+        runPersonTree();
+        // runEjercicio();
+        // runEjercicio2();
     }
-    //
+    
     // private static void runIntComparativaPesos() {
     // IntTree tree = new IntTree();
     // Random random = new Random();
@@ -64,21 +64,21 @@ public class App {
     // + tiempoPesoRecursivoMs + " ms");
     // }
 
-    // private static void runPersonTree(){
-    // BinaryTree<Person> personTree = new BinaryTree<>();
-    // personTree.insert(new Person("Alice", 30));
-    // personTree.insert(new Person("Bob", 25));
-    // personTree.insert(new Person("Diego", 35));
-    // personTree.insert(new Person("Rafael", 35));
-    // personTree.insert(new Person("Ana", 35));
+    private static void runPersonTree(){
+    BinaryTree<Person> personTree = new BinaryTree<>();
+    personTree.insert(new Person("Alice", 30));
+    personTree.insert(new Person("Bob", 25));
+    personTree.insert(new Person("Diego", 35));
+    personTree.insert(new Person("Rafael", 35));
+    personTree.insert(new Person("Ana", 35));
 
-    // System.out.println("iN ORDER" );
-    // personTree.inOrder();
-    // System.out.println();
-    // System.out.println("PRE ORDER ");
-    // personTree.preOrder();
+    System.out.println("iN ORDER" );
+    personTree.inOrder();
+    System.out.println();
+    System.out.println("PRE ORDER ");
+    personTree.preOrder();
 
-    // }
+    }
 
     // private static void runIntTree(){
     // IntTree arbolNumeros = new IntTree();
@@ -124,26 +124,35 @@ public class App {
     // arbolNumeros.peso();
     // System.out.println(arbolNumeros.peso());
 
-    private static void runEjercicio() {
-        Ejercicio1 ejercicio = new Ejercicio1();
+    // }
 
-        int[] datos = new int[] { 5, 3, 7, 2, 4, 6, 8 };
-        ejercicio.insert(datos);
+    // private static void runEjercicio() {
+    //     Ejercicio1 ejercicio = new Ejercicio1();
 
-    }
+    //     int[] datos = new int[] { 5, 3, 7, 2, 4, 6, 8 };
+    //     ejercicio.insert(datos);
 
-    private static void runEjercicio2() {
-        BinaryTree<Integer> arbol = new BinaryTree<>();
+    // }
 
-        int[] datos2 = { 4, 2, 7, 1, 3, 6, 9 };
+    // private static void runEjercicio2() {
+    //     BinaryTree<Integer> arbol = new BinaryTree<>();
 
-        for (int dato : datos2) {
-            arbol.insert(dato);
-        }
+    //     int[] datos2 = {4, 2, 7, 1, 3, 6, 9};
 
-        Ejercicio2 ejercicio2 = new Ejercicio2();
-        ejercicio2.invert(arbol.getRoot());
+    //     for (int dato : datos2) {
+    //         arbol.insert(dato);
+    //     }
 
-    }
+    //     Ejercicio2 ejercicio2 = new Ejercicio2();
+
+    //     System.out.println("Árbol original:");
+    //     ejercicio2.printTree(arbol.getRoot());
+
+    //     Node<Integer> raizIn = ejercicio2.invert(arbol.getRoot());
+
+    //     System.out.println("\nÁrbol invertido:");
+    //     ejercicio2.printTree(raizIn);
+    
+    // }
 
 }
