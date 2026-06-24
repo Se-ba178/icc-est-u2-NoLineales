@@ -1,26 +1,79 @@
-import java.net.Socket;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
+// import java.net.Socket;
+// import java.util.LinkedList;
+// import java.util.List;
+// import java.util.Random;
 
-import models.Person;
-import structuras.arboles.BinaryTree;
-import structuras.arboles.Ejercicio1;
-import structuras.arboles.Ejercicio2;
-import structuras.arboles.Ejercicio3;
-import structuras.arboles.Ejercicio4;
-import structuras.arboles.IntTree;
-import structuras.nodes.Node;
+import java.util.Set;
+
+import collections.sets.Sets;
+// import models.Person;
+// import structuras.arboles.BinaryTree;
+// import structuras.arboles.Ejercicio1;
+// import structuras.arboles.Ejercicio2;
+// import structuras.arboles.Ejercicio3;
+// import structuras.arboles.Ejercicio4;
+// import structuras.arboles.IntTree;
+// import structuras.nodes.Node;
+import models.Contacto;
 
 public class App {
     public static void main(String[] args) throws Exception {
         // runIntTree();
         // runPersonTree();
-        runEjercicio();
-        runEjercicio2();
-        runEjercicio3();
-        runEjercicio4();
+        // runEjercicio();
+        // runEjercicio2();
+        // runEjercicio3();
+        // runEjercicio4();
+        runSets();
+        
+
     }
+
+    private static void runSets() {
+        Sets sets = new Sets();
+        //Primera implementacion HashSet
+        System.out.println();
+        System.out.println("----- HashSet -----");
+        Set<String> hashSet = sets.construirHashSet();   //No permite duplicados
+        System.out.println(hashSet);
+        System.out.println("Tamaño :" + hashSet.size());
+        System.out.println(hashSet.contains("F"));
+
+        //Segunda implementacion 
+        System.out.println();
+        Set<String> lhSets = sets.construirLinkedHashSet();
+        System.out.println("----- LinkedHashSet -----");
+        System.out.println(lhSets);
+        System.out.println("Tamaño :" + lhSets.size());
+        System.out.println(lhSets.contains("D"));
+
+        //Tercera Implemetacion
+        System.out.println();
+        Set<String> Tset = sets.construirTreeSet();
+        System.out.println("----- TreeSet -----");
+        System.out.println(Tset);                    //Solo compara el primer caracter
+        System.out.println("Tamaño :" + Tset.size());
+        System.out.println(Tset.contains("D"));
+
+        //Cuarta Implemetacion
+        System.out.println();
+        Set<Contacto> tCSet = sets.construirTreeSetConComparador();
+        System.out.println("----- TreeSet  con comparador-----");
+        System.out.println(tCSet);                    //Solo compara el primer caracter
+        System.out.println("Tamaño :" + tCSet.size());
+        
+
+        //Quinta
+        System.out.println();
+        Set<Contacto> hCoSet = sets.construirHashSetContacto();
+        System.out.println("----- hashSetConatcto-----");
+        System.out.println(hCoSet);                    //Solo compara el primer caracter
+        System.out.println("Tamaño :" + hCoSet.size());
+        
+    }
+
+
+
 
     // private static void runIntComparativaPesos() {
     // IntTree tree = new IntTree();
@@ -132,37 +185,10 @@ public class App {
 
     // }
 
-    private static void runEjercicio() {
-        System.out.println("--------------Ejercicio 1--------------- :");
-        Ejercicio1 ejercicio = new Ejercicio1();
-        int[] datos = new int[] { 5, 3, 7, 2, 4, 6, 8 };
-        ejercicio.insert(datos);
-    }
+    // 
+    
 
-    private static void runEjercicio2() {
-        System.out.println("-------------------Ejercicio 2----------------- :");
-        Ejercicio2 ejercicio = new Ejercicio2();
+    //EJERCICIO DE GRAFOS
 
-        int[] datos = new int[] { 5, 3, 7, 2, 4, 6, 8 };
-        ejercicio.insert(datos);
-
-    }
-
-    private static void runEjercicio3() {
-        System.out.println("---------------Ejercicio 3-------------- :");
-        Ejercicio3 ejercicio3 = new Ejercicio3();
-        int[] numeros = { 4, 2, 7, 1, 3, 6, 9 };
-        ejercicio3.insert(numeros);
-    }
-
-    private static void runEjercicio4() {
-        System.out.println("------------------Ejercicio 4------------------ :");
-        Ejercicio4 ejercicio4 = new Ejercicio4();
-
-        int[] numeros = { 4, 2, 7, 1, 3, 6, 9 };
-        ejercicio4.insert(numeros);
-
-
-    }
 
 }

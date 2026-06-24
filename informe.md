@@ -304,7 +304,7 @@ Metodo `printTree y printTreeFinal` del Ejercicio4: estos dos metodos es  lo que
 | Ejercicio 01: Insertar en BST |![alt text](image-3.png)  | ![alt text](image-1.png) |Es un ejercicio interesante aunque primero no sabes ni por dodne empezar pero de ahi te das cuenta que es medio facil seguir la estructura de primero verificar de ahi crear metodos que nos permitan invertir o insertar directamente pero al final se hace medio facil entender el codigo |
 | Ejercicio 02: Invertir árbol binario |![alt text](image-4.png) | ![alt text](image-2.png) | Podeos ver que la estrcutura del codigo es como lo que ya hemso venido practicando hace un tiempo es cierto que cambian ciertas cosas pero son medio faciles de entender como la modificacion del orden en el q se van a aimprimir como recorremos los subarboles y como los intercambiamos.|
 | Ejercicio 03: Listar niveles | ![alt text](image-10.png) | ![alt text](image-6.png) | En este codigo partimos de   la creciond euna lista para asi poder empezar a hacer el arbol y si irlos comparando e irlos imprimiendo asi que es facil pero medio largo este metodo.|
-| Ejercicio 04: Profundidad máxima | ![alt text](image-9.png) | ![alt text](image-8.png) | En este ultimo codigo es para verificar cuantos niveles tiene al arbol pero como esta de forma horizontal es de la misma forma no cambia en nada para eso ocupamos el Math.max entre ambos tanto el izquierdo como el derecho.|
+| Ejercicio 04: Profundidad máxima | ![alt text](image-9.png) | ![alt text](image-8.png) | En este ultimo codigo es para verificar cuantos niveles tiene al arbol pero como esta de forma horizontal es de la misma forma no cambia en nada para eso ocupamos el Math.max entre ambos tanto el izquierdo como el derecho. 67890'`+¡Ç+`P9O8 76543|
 
 
 

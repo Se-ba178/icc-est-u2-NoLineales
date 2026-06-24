@@ -175,6 +175,10 @@ private static void runPersonTree(){
 ### Captura de salidas en consola
 ![alt text](image.png)
 
+
+## Practica 24/96/2026
+metodos 
+
 ## Conclusiones
 
 El estudiante debe redactar al menos tres conclusiones propias relacionadas con los arboles.
