@@ -7,6 +7,19 @@ public class Ejercicio2 {
     public Node<Integer> invert(Node<Integer> root) {
         return invertRecursive(root);
     }
+    public void insert(int[] numeros) {
+        BinaryTree<Integer> binario = new BinaryTree<>();
+        for (int numero : numeros) {
+            binario.insert(numero);
+        }
+        System.out.println("Arbol in order");
+        printTree(binario.getRoot());
+        Node<Integer> invertido = invert(binario.getRoot());
+
+        System.out.println("Arbol invertido");
+        printTree(invertido);
+
+    }
     private Node<Integer> invertRecursive(Node<Integer> root) {
         if (root == null) {
             return null;
