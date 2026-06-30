@@ -4,7 +4,9 @@
 // import java.util.Random;
 
 import java.util.Set;
+import java.util.TreeSet;
 
+import collections.mapas.Maps;
 import collections.sets.Sets;
 // import models.Person;
 // import structuras.arboles.BinaryTree;
@@ -24,54 +26,76 @@ public class App {
         // runEjercicio2();
         // runEjercicio3();
         // runEjercicio4();
-        runSets();
+        // runSets();
+        runMaps();
         
 
     }
 
-    private static void runSets() {
-        Sets sets = new Sets();
-        //Primera implementacion HashSet
-        System.out.println();
-        System.out.println("----- HashSet -----");
-        Set<String> hashSet = sets.construirHashSet();   //No permite duplicados
-        System.out.println(hashSet);
-        System.out.println("Tamaño :" + hashSet.size());
-        System.out.println(hashSet.contains("F"));
+    // private static void runSets() {
+    //     Sets sets = new Sets();
+    //     //Primera implementacion HashSet
+    //     System.out.println();
+    //     System.out.println("----- HashSet -----");
+    //     Set<String> hashSet = sets.construirHashSet();   //No permite duplicados
+    //     System.out.println(hashSet);
+    //     System.out.println("Tamaño :" + hashSet.size());
+    //     System.out.println(hashSet.contains("F"));
 
-        //Segunda implementacion 
-        System.out.println();
-        Set<String> lhSets = sets.construirLinkedHashSet();
-        System.out.println("----- LinkedHashSet -----");
-        System.out.println(lhSets);
-        System.out.println("Tamaño :" + lhSets.size());
-        System.out.println(lhSets.contains("D"));
+    //     //Segunda implementacion 
+    //     System.out.println();
+    //     Set<String> lhSets = sets.construirLinkedHashSet();
+    //     System.out.println("----- LinkedHashSet -----");
+    //     System.out.println(lhSets);
+    //     System.out.println("Tamaño :" + lhSets.size());
+    //     System.out.println(lhSets.contains("D"));
 
-        //Tercera Implemetacion
-        System.out.println();
-        Set<String> Tset = sets.construirTreeSet();
-        System.out.println("----- TreeSet -----");
-        System.out.println(Tset);                    //Solo compara el primer caracter
-        System.out.println("Tamaño :" + Tset.size());
-        System.out.println(Tset.contains("D"));
+    //     //Tercera Implemetacion
+    //     System.out.println();
+    //     Set<String> Tset = sets.construirTreeSet();
+    //     System.out.println("----- TreeSet -----");
+    //     System.out.println(Tset);                    //Solo compara el primer caracter
+    //     System.out.println("Tamaño :" + Tset.size());
+    //     System.out.println(Tset.contains("D"));
 
-        //Cuarta Implemetacion
-        System.out.println();
-        Set<Contacto> tCSet = sets.construirTreeSetConComparador();
-        System.out.println("----- TreeSet  con comparador-----");
-        System.out.println(tCSet);                    //Solo compara el primer caracter
-        System.out.println("Tamaño :" + tCSet.size());
+    //     //Cuarta Implemetacion
+    //     System.out.println();
+    //     Set<Contacto> tCSet = sets.construirTreeSetConComparador();
+    //     System.out.println("----- TreeSet  con comparador-----");
+    //     System.out.println(tCSet);                    //Solo compara el primer caracter
+    //     System.out.println("Tamaño :" + tCSet.size());
         
 
-        //Quinta
-        System.out.println();
-        Set<Contacto> hCoSet = sets.construirHashSetContacto();
-        System.out.println("----- hashSetConatcto-----");
-        System.out.println(hCoSet);                    //Solo compara el primer caracter
-        System.out.println("Tamaño :" + hCoSet.size());
+    //     //Quinta
+    //     System.out.println();
+    //     Set<Contacto> hCoSet = sets.construirHashSetContacto();
+    //     System.out.println("----- hashSetConatcto-----");
+    //     System.out.println(hCoSet);                    //Solo compara el primer caracter
+    //     System.out.println("Tamaño :" + hCoSet.size());
         
+    // }
+    
+    private static void runMaps(){
+        Maps maps = new Maps();
+        maps.construirHashMap();
+        System.out.println("---------------");
+        maps.contruirLinkedHashMap();
+        System.out.println("-------------");
+        maps.construirTreeMap();
+
+        // // public void eliminarDuplicadosAndSort(List<Contacto> contactos){
+        //       //Antes era con for y otro for hy tanta cosa 
+        //      Ahora con Sets es mas facil y concreto
+        //     Set<Contacto> tset = new TreeSet<>();
+        //     for(Contacto contacto : contactos){
+        //         tset.add(contacto);
+        //         ;
+        //     }
+
+        // }
+
+
     }
-
 
 
 

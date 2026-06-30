@@ -83,9 +83,4 @@ public class Contacto implements Comparable <Contacto>{
             return false;
         return true;
     }
-
-    
-
-
-
 }
