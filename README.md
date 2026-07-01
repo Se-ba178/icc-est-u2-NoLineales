@@ -299,6 +299,148 @@ public class Sets {
 
 ![alt text](image-1.png)
 
+# Practica de Mapas 
+Fecha : 25/6/2026
+
+En la practica de mapas realizamos algunos metodos los cuales incluian el uso de mapas a los cuales se les hiba a dar una clase clase y valor y haremos metodos los cuales  incluiran el uso de hash , de una linkedHashMap y un TreeMap todos estos metodos nos van a ayudar a ver como se genran ordenan y se implementan los mapas a codigo.Todos los metodos van a tenr  Una clave  un valor pero se van a ocuar distintos tipos de mapa.
+```java
+public class Maps {
+
+    public Map<String , Integer> construirHashMap(){
+        Map<String, Integer> map = new HashMap<>();
+        map.put("A", 10);
+        map.put("B", 20);
+        map.put("C", 30);
+        map.put("A", 50);
+        System.out.println(map.size());
+        System.out.println(map);
+        System.out.println(map.values().toArray());
+
+        System.out.println("--------Uno a Uno-------------");
+        for (int i = 0; i < map.size(); i++) { // Mapa se ocupa el size y no el lenght
+            //Mapa a -> Valores a  un arreglo  -> Array cada posicion
+            // MAP ->V -> VALORES -> ARRAY ->ARRAY[POS]
+            System.out.println(map.values().toArray()[i]);  
+        }
+        
+        System.out.println("--------------");
+        // MAP ->K -> KEYS -> SET -> Valor del set 
+        for ( String key: map.keySet()) {
+            System.out.println(key);   //Pasan al set porque nunca se pueden repetir 
+        } //A , B , C
+
+        System.out.println("----------------");
+        // SET<T>
+        for(Map.Entry<String, Integer> entry : map.entrySet()){
+            System.out.println(entry);
+        }
+        return map;
+    }
+
+    public LinkedHashMap<String, Integer> contruirLinkedHashMap(){
+        LinkedHashMap<String, Integer > lMap = new LinkedHashMap<>();
+        lMap.put("A", 2);
+        lMap.put("B", 3);
+        lMap.put("A", 5);
+        lMap.put("C", 50);
+        lMap.put("D", 5);
+        lMap.put("F", 3);
+        lMap.put("G", 8);
+        lMap.put("H", 85);
+        lMap.put("I", 5);
+        System.out.println(lMap);
+        System.out.println(lMap.entrySet());
+        return lMap;
+    }
+
+    public Map<String, Integer> construirTreeMap(){
+        Map<String, Integer > lMap = new TreeMap<>();
+        lMap.put("A", 2);
+        lMap.put("B", 3);
+        lMap.put("A", 5);
+        lMap.put("C", 50);
+        lMap.put("D", 5);
+        lMap.put("F", 3);
+        lMap.put("G", 8);
+        lMap.put("H", 85);
+        lMap.put("I", 5);
+        System.out.println(lMap);
+        System.out.println(lMap.entrySet());
+        return lMap;
+    }
+    
+}
+```
+## *Explicacion Metodo a metodo*
+
+### `Metodo -> construirHashMap()`
+En este metodo se crea un HashMap agregar clave y valor u va a decir que si una clave se repite su valor va a ser reemplazado .Ademas nos muestra fromas de recorre un mapa utilizando los valores`values()` y las claves`KeySet()` y las entradas `entrySet()`
+
+### `Metodo -> contruirLinkedHashMap()`
+Este metodo va a ocupar un linkedHasMap  insettamso los valores de clave y valor y mostramos el contenido.Su principal caracteristica es que va a mantener el mismo orden en lo q los elementos se ingresaron ,Aunque las claves repetidas actualizan su valor .
+
+### `Metodo -> construirTreeMap()`
+Este metodo va a crear un TreeMap , agrega claves y valor y los muestra de manera ordenada automaticamente por su claves .Al igual que los otros mapas vistos , si una clave ya esta repetida el valor nuevo reemplaza al anterior.
+
+
+## Salida de Consola 
+![alt text](image-2.png)
+
+# Practica de de Grafos
+
+Fecha : 1/7/2026
+
+En esta practica empezamos a ver la utilizacion de grafos para unir nodos comparar etc . Primero creamos una carpeta `graphs` para poner los metodos de los grafos a la cual llamaremos `Graph` en esta clase va a contener todos los metodos para relacionar grafos entre si ya sea unidireccional y bidireccional y por ultimo un metodo de impresion para imprimir sus relaciones entre si.
+
+```java
+public class Graph<T> {
+    private Map<Node<T>, Set<Node<T>>> graph;
+    
+    public Graph(){
+        this.graph = new HashMap<Node<T>, Set<Node<T>>>();
+    }
+    public void add(T data){
+        Node<T> node = new Node<T>(data);
+        // if(! graph.containsKey(node)){
+        //     graph.put(node, new HashSet<Node<T>>());
+        // }
+        graph.putIfAbsent(node, new HashSet<Node<T>>());  //--> Es lo mismo que las tres lineas del if 
+    }
+
+    public void addEdge(T v1, T v2){
+        Node<T> nv1 = new Node<T>(v1);
+        Node<T> nv2 = new Node<T>(v2);
+        add(v1);
+        add(v2);
+        graph.get(nv1).add(nv2);
+        graph.get(nv2).add(nv1);
+    }
+    public void addEdge(Node<T> nv1, Node<T> nv2){
+        graph.get(nv1).add(nv2);
+        graph.get(nv2).add(nv1);
+    }
+    public void addEdgeUni(T v1, T v2){
+        Node<T> nv1 = new Node<T>(v1);
+        Node<T> nv2 = new Node<T>(v2);
+        add(v1);
+        add(v2);
+        graph.get(nv1).add(nv2);     // Uno le conoce al otro
+    }
+    public void printGraph(){
+        for (Map.Entry<Node<T>, Set<Node<T>>> entry : graph.entrySet() ){
+            System.out.print(entry.getKey() + "--> ");
+            for(Node<T> coneccion : entry.getValue()){
+                System.out.print(coneccion);
+            }
+            System.out.println();
+        }
+    }
+}
+
+```
+### Salida de consola 
+![alt text](image-3.png)
+
 ## Conclusiones
 
 El estudiante debe redactar al menos tres conclusiones propias relacionadas con los arboles.

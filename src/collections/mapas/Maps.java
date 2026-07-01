@@ -8,11 +8,6 @@ import java.util.TreeMap;
 
 public class Maps {
 
-    //Map<TipoClave, TipoValor>
-    //Map<K, V>
-    //Interfaz no se puede instanciar 
-    //Las clases si se pueden instanciar 
-    //Map<String , Integer>
     public Map<String , Integer> construirHashMap(){
         Map<String, Integer> map = new HashMap<>();
         map.put("A", 10);

@@ -3,6 +3,7 @@
 // import java.util.List;
 // import java.util.Random;
 
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -17,6 +18,7 @@ import collections.sets.Sets;
 // import structuras.arboles.IntTree;
 // import structuras.nodes.Node;
 import models.Contacto;
+import structuras.graphs.Graph;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -27,9 +29,32 @@ public class App {
         // runEjercicio3();
         // runEjercicio4();
         // runSets();
-        runMaps();
+        // runMaps();
+        runGraphs();
+        
         
 
+    }
+
+    private static void runGraphs() {
+        Graph<String> grafo = new Graph<>();
+        grafo.add("A");
+        grafo.add("B");
+        grafo.add("C");
+        grafo.add("D");
+        grafo.add("J");
+  
+        
+        grafo.addEdgeUni("A", "B");
+        grafo.addEdgeUni("B", "C");
+        grafo.addEdgeUni("C", "A");
+        grafo.addEdgeUni("B", "D");
+        grafo.addEdge("J", "D");
+        grafo.addEdge("D", "C");
+
+
+        grafo.printGraph();
+        
     }
 
     // private static void runSets() {
@@ -75,27 +100,27 @@ public class App {
         
     // }
     
-    private static void runMaps(){
-        Maps maps = new Maps();
-        maps.construirHashMap();
-        System.out.println("---------------");
-        maps.contruirLinkedHashMap();
-        System.out.println("-------------");
-        maps.construirTreeMap();
+    // private static void runMaps(){
+    //     Maps maps = new Maps();
+    //     maps.construirHashMap();
+    //     System.out.println("---------------");
+    //     maps.contruirLinkedHashMap();
+    //     System.out.println("-------------");
+    //     maps.construirTreeMap();
+    // }
 
-        // // public void eliminarDuplicadosAndSort(List<Contacto> contactos){
-        //       //Antes era con for y otro for hy tanta cosa 
-        //      Ahora con Sets es mas facil y concreto
-        //     Set<Contacto> tset = new TreeSet<>();
-        //     for(Contacto contacto : contactos){
-        //         tset.add(contacto);
-        //         ;
-        //     }
+    // public void eliminarDuplicadosAndSort(List<Contacto> contactos){
+    //           //Antes era con for y otro for hy tanta cosa 
+    //         Set<Contacto> tset = new TreeSet<>();
+    //         for(Contacto contacto : contactos){
+    //             tset.add(contacto);
+                
+    //         }
 
-        // }
+        
 
 
-    }
+    // }
 
 
 
