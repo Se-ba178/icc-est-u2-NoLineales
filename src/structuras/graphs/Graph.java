@@ -41,6 +41,7 @@ public class Graph<T> {
         graph.get(nv2).add(nv1);
     }
 
+
     public void addEdgeUni(T v1, T v2){
         Node<T> nv1 = new Node<T>(v1);
         Node<T> nv2 = new Node<T>(v2);
@@ -48,6 +49,10 @@ public class Graph<T> {
         add(v2);
         graph.get(nv1).add(nv2);     // Uno le conoce al otro
     }
+
+
+
+
     public void printGraph(){
         for (Map.Entry<Node<T>, Set<Node<T>>> entry : graph.entrySet() ){
             System.out.print(entry.getKey() + "--> ");
@@ -58,6 +63,9 @@ public class Graph<T> {
             System.out.println();
 
         }
+    }
+    public Set<Node<T>> getVecinos(T current) {
+        return graph.getOrDefault(new Node<T>(current), new HashSet<Node<T>>());
     }
 
 

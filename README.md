@@ -441,6 +441,11 @@ public class Graph<T> {
 ### Salida de consola 
 ![alt text](image-3.png)
 
+## Practica En la carpeta Grafos
+fecha : 8/7/2026
+
+
+
 ## Conclusiones
 
 El estudiante debe redactar al menos tres conclusiones propias relacionadas con los arboles.

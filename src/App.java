@@ -19,6 +19,8 @@ import collections.sets.Sets;
 // import structuras.nodes.Node;
 import models.Contacto;
 import structuras.graphs.Graph;
+import structuras.graphs.PathResult;
+import structuras.graphs.implementations.DFSPathFinder;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -30,32 +32,56 @@ public class App {
         // runEjercicio4();
         // runSets();
         // runMaps();
-        runGraphs();
+        // runGraphs();
+        runGrafoDos();
+        
         
         
 
     }
 
-    private static void runGraphs() {
-        Graph<String> grafo = new Graph<>();
-        grafo.add("A");
-        grafo.add("B");
-        grafo.add("C");
-        grafo.add("D");
-        grafo.add("J");
+    private static void runGrafoDos() {
+        Graph<String> g = new Graph<>();
+        g.addEdge("A", "B");
+        g.addEdge("A", "C");
+        g.addEdge("B", "D");
+        g.addEdge("C", "J");
+        g.addEdge("D", "F");
+        g.addEdgeUni("D", "E");
+        g.addEdge("E", "F");
+        g.addEdgeUni("K", "J");
+        DFSPathFinder<String> dfs = new DFSPathFinder<String>();
+        PathResult<String> result = dfs.find(g, "A", "F");
+        PathResult<String> result2 = dfs.find(g, "A", "J");
+        PathResult<String> result3 = dfs.find(g, "A", "K");
+        System.out.println(result);
+        System.out.println("------------");
+        System.out.println(result2);
+        System.out.println("-----------");
+        System.out.println(result3);
+
+    }
+
+    // private static void runGraphs() {
+    //     Graph<String> grafo = new Graph<>();
+    //     grafo.add("A");
+    //     grafo.add("B");
+    //     grafo.add("C");
+    //     grafo.add("D");
+    //     grafo.add("J");
   
         
-        grafo.addEdgeUni("A", "B");
-        grafo.addEdgeUni("B", "C");
-        grafo.addEdgeUni("C", "A");
-        grafo.addEdgeUni("B", "D");
-        grafo.addEdge("J", "D");
-        grafo.addEdge("D", "C");
+    //     grafo.addEdgeUni("A", "B");
+    //     grafo.addEdgeUni("B", "C");
+    //     grafo.addEdgeUni("C", "A");
+    //     grafo.addEdgeUni("B", "D");
+    //     grafo.addEdge("J", "D");
+    //     grafo.addEdge("D", "C");
 
 
-        grafo.printGraph();
+    //     grafo.printGraph();
         
-    }
+    // }
 
     // private static void runSets() {
     //     Sets sets = new Sets();
