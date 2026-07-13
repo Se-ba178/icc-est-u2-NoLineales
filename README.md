@@ -442,7 +442,83 @@ public class Graph<T> {
 ![alt text](image-3.png)
 
 ## Practica En la carpeta Grafos
-fecha : 8/7/2026
+Fecha : 8/7/2026
+
+En este proyecto vimos una nueva forma de como poder localizar los grafos en una lista y eso todo eso lo hicimos en la carpeta de `implements`
+creando tres clases adentro una llamada `Graph.java` - `PathFinder.java` - `PathResult.java`   en estos archivos creamos codigo para poder hacer recorrido en los  grafos tambien teniendo una clase `PathFinder` que es una clase interface 
+```java
+package structuras.graphs;
+//Interface --> 
+// -No contiene logica interna  
+// -Define los  metoso
+// -No se puede instanciar
+ public interface PathFinder <T>{
+    PathResult<T> find(Graph<T> graph, T start, T end);
+}
+```
+```java
+public class DFSPathFinder<T> implements PathFinder<T> {
+    @Override
+    public PathResult<T> find(Graph<T> graph, T start, T end) {
+        Set<T> visited = new LinkedHashSet<>();
+        Set<T> path = new LinkedHashSet<>();
+        boolean encontrado = dfs(graph, start, end, visited, path);
+        if (!encontrado) {
+            path.clear();
+        }
+        return new PathResult<>(visited, path);
+    }
+    private boolean dfs(Graph<T> graph, T current, T end, Set<T> visited, Set<T> path) {
+        visited.add(current);
+        path.add(current);
+        // Caso base
+        Node<T> nC = new Node<T>(current);
+        Node<T> nE = new Node<T>(end);
+        if (nC.equals(nE)) {
+            return true;
+        }
+        // Metodo recursivo
+        for (Node<T> vecino : graph.getVecinos(current)) {
+            if (!visited.contains(vecino.getValue())) {
+                boolean encontrado = dfs(graph, vecino.getValue(), end, visited, path);
+                if (encontrado) {
+                    return true;
+                }
+            }
+        }
+        path.remove(current);
+        return false;
+    }
+}
+```
+```java
+  private final Set<T> visitados;
+    private final Set<T> path;
+    
+    public PathResult(Set<T> visitados, Set<T> path) {
+        this.visitados = visitados;
+        this.path = path;
+    }
+    public Set<T> getVisitados() {
+        return visitados;
+    }
+    public Set<T> getPath() {
+        return path;
+    }
+    @Override
+    
+        public String toString() {
+        return "PathResult [\n visitados=" + visitados + 
+        (!path.isEmpty() 
+        ?  "Path= " + path
+        
+        :" \n No se encontro camino entre los nodos ");
+    }
+```
+### Salida de consola
+![alt text](image-4.png)
+
+
 
 
 
