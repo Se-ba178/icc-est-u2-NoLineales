@@ -519,6 +519,8 @@ public class DFSPathFinder<T> implements PathFinder<T> {
 ![alt text](image-4.png)
 
 
+### Practica BFS
+Fecha : 13/07/2026
 
 
 

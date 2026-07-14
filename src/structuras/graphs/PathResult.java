@@ -1,9 +1,6 @@
 package structuras.graphs;
 
-import java.util.List;
 import java.util.Set;
-
-import structuras.nodes.Node;
 
 public class PathResult<T> {
     private final Set<T> visitados;

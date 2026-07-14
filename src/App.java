@@ -20,6 +20,7 @@ import collections.sets.Sets;
 import models.Contacto;
 import structuras.graphs.Graph;
 import structuras.graphs.PathResult;
+import structuras.graphs.implementations.BFSPathFinder;
 import structuras.graphs.implementations.DFSPathFinder;
 
 public class App {
@@ -33,14 +34,12 @@ public class App {
         // runSets();
         // runMaps();
         // runGraphs();
-        runGrafoDos();
-        
-        
-        
+        // runGrafoDos();
+        runGrafosBFS();
 
     }
 
-    private static void runGrafoDos() {
+    private static void runGrafosBFS() {
         Graph<String> g = new Graph<>();
         g.addEdge("A", "B");
         g.addEdge("A", "C");
@@ -50,7 +49,7 @@ public class App {
         g.addEdgeUni("D", "E");
         g.addEdge("E", "F");
         g.addEdgeUni("K", "J");
-        DFSPathFinder<String> dfs = new DFSPathFinder<String>();
+        BFSPathFinder<String> dfs = new BFSPathFinder<String>();
         PathResult<String> result = dfs.find(g, "A", "F");
         PathResult<String> result2 = dfs.find(g, "A", "J");
         PathResult<String> result3 = dfs.find(g, "A", "K");
@@ -59,96 +58,109 @@ public class App {
         System.out.println(result2);
         System.out.println("-----------");
         System.out.println(result3);
-
     }
 
+    // private static void runGrafoDos() {
+    // Graph<String> g = new Graph<>();
+    // g.addEdge("A", "B");
+    // g.addEdge("A", "C");
+    // g.addEdge("B", "D");
+    // g.addEdge("C", "J");
+    // g.addEdge("D", "F");
+    // g.addEdgeUni("D", "E");
+    // g.addEdge("E", "F");
+    // g.addEdgeUni("K", "J");
+    // DFSPathFinder<String> dfs = new DFSPathFinder<String>();
+    // PathResult<String> result = dfs.find(g, "A", "F");
+    // PathResult<String> result2 = dfs.find(g, "A", "J");
+    // PathResult<String> result3 = dfs.find(g, "A", "K");
+    // System.out.println(result);
+    // System.out.println("------------");
+    // System.out.println(result2);
+    // System.out.println("-----------");
+    // System.out.println(result3);
+
+    // }
+
     // private static void runGraphs() {
-    //     Graph<String> grafo = new Graph<>();
-    //     grafo.add("A");
-    //     grafo.add("B");
-    //     grafo.add("C");
-    //     grafo.add("D");
-    //     grafo.add("J");
-  
-        
-    //     grafo.addEdgeUni("A", "B");
-    //     grafo.addEdgeUni("B", "C");
-    //     grafo.addEdgeUni("C", "A");
-    //     grafo.addEdgeUni("B", "D");
-    //     grafo.addEdge("J", "D");
-    //     grafo.addEdge("D", "C");
+    // Graph<String> grafo = new Graph<>();
+    // grafo.add("A");
+    // grafo.add("B");
+    // grafo.add("C");
+    // grafo.add("D");
+    // grafo.add("J");
 
+    // grafo.addEdgeUni("A", "B");
+    // grafo.addEdgeUni("B", "C");
+    // grafo.addEdgeUni("C", "A");
+    // grafo.addEdgeUni("B", "D");
+    // grafo.addEdge("J", "D");
+    // grafo.addEdge("D", "C");
 
-    //     grafo.printGraph();
-        
+    // grafo.printGraph();
+
     // }
 
     // private static void runSets() {
-    //     Sets sets = new Sets();
-    //     //Primera implementacion HashSet
-    //     System.out.println();
-    //     System.out.println("----- HashSet -----");
-    //     Set<String> hashSet = sets.construirHashSet();   //No permite duplicados
-    //     System.out.println(hashSet);
-    //     System.out.println("Tamaño :" + hashSet.size());
-    //     System.out.println(hashSet.contains("F"));
+    // Sets sets = new Sets();
+    // //Primera implementacion HashSet
+    // System.out.println();
+    // System.out.println("----- HashSet -----");
+    // Set<String> hashSet = sets.construirHashSet(); //No permite duplicados
+    // System.out.println(hashSet);
+    // System.out.println("Tamaño :" + hashSet.size());
+    // System.out.println(hashSet.contains("F"));
 
-    //     //Segunda implementacion 
-    //     System.out.println();
-    //     Set<String> lhSets = sets.construirLinkedHashSet();
-    //     System.out.println("----- LinkedHashSet -----");
-    //     System.out.println(lhSets);
-    //     System.out.println("Tamaño :" + lhSets.size());
-    //     System.out.println(lhSets.contains("D"));
+    // //Segunda implementacion
+    // System.out.println();
+    // Set<String> lhSets = sets.construirLinkedHashSet();
+    // System.out.println("----- LinkedHashSet -----");
+    // System.out.println(lhSets);
+    // System.out.println("Tamaño :" + lhSets.size());
+    // System.out.println(lhSets.contains("D"));
 
-    //     //Tercera Implemetacion
-    //     System.out.println();
-    //     Set<String> Tset = sets.construirTreeSet();
-    //     System.out.println("----- TreeSet -----");
-    //     System.out.println(Tset);                    //Solo compara el primer caracter
-    //     System.out.println("Tamaño :" + Tset.size());
-    //     System.out.println(Tset.contains("D"));
+    // //Tercera Implemetacion
+    // System.out.println();
+    // Set<String> Tset = sets.construirTreeSet();
+    // System.out.println("----- TreeSet -----");
+    // System.out.println(Tset); //Solo compara el primer caracter
+    // System.out.println("Tamaño :" + Tset.size());
+    // System.out.println(Tset.contains("D"));
 
-    //     //Cuarta Implemetacion
-    //     System.out.println();
-    //     Set<Contacto> tCSet = sets.construirTreeSetConComparador();
-    //     System.out.println("----- TreeSet  con comparador-----");
-    //     System.out.println(tCSet);                    //Solo compara el primer caracter
-    //     System.out.println("Tamaño :" + tCSet.size());
-        
+    // //Cuarta Implemetacion
+    // System.out.println();
+    // Set<Contacto> tCSet = sets.construirTreeSetConComparador();
+    // System.out.println("----- TreeSet con comparador-----");
+    // System.out.println(tCSet); //Solo compara el primer caracter
+    // System.out.println("Tamaño :" + tCSet.size());
 
-    //     //Quinta
-    //     System.out.println();
-    //     Set<Contacto> hCoSet = sets.construirHashSetContacto();
-    //     System.out.println("----- hashSetConatcto-----");
-    //     System.out.println(hCoSet);                    //Solo compara el primer caracter
-    //     System.out.println("Tamaño :" + hCoSet.size());
-        
+    // //Quinta
+    // System.out.println();
+    // Set<Contacto> hCoSet = sets.construirHashSetContacto();
+    // System.out.println("----- hashSetConatcto-----");
+    // System.out.println(hCoSet); //Solo compara el primer caracter
+    // System.out.println("Tamaño :" + hCoSet.size());
+
     // }
-    
+
     // private static void runMaps(){
-    //     Maps maps = new Maps();
-    //     maps.construirHashMap();
-    //     System.out.println("---------------");
-    //     maps.contruirLinkedHashMap();
-    //     System.out.println("-------------");
-    //     maps.construirTreeMap();
+    // Maps maps = new Maps();
+    // maps.construirHashMap();
+    // System.out.println("---------------");
+    // maps.contruirLinkedHashMap();
+    // System.out.println("-------------");
+    // maps.construirTreeMap();
     // }
 
     // public void eliminarDuplicadosAndSort(List<Contacto> contactos){
-    //           //Antes era con for y otro for hy tanta cosa 
-    //         Set<Contacto> tset = new TreeSet<>();
-    //         for(Contacto contacto : contactos){
-    //             tset.add(contacto);
-                
-    //         }
-
-        
-
+    // //Antes era con for y otro for hy tanta cosa
+    // Set<Contacto> tset = new TreeSet<>();
+    // for(Contacto contacto : contactos){
+    // tset.add(contacto);
 
     // }
 
-
+    // }
 
     // private static void runIntComparativaPesos() {
     // IntTree tree = new IntTree();
@@ -260,10 +272,8 @@ public class App {
 
     // }
 
-    // 
-    
+    //
 
-    //EJERCICIO DE GRAFOS
-
+    // EJERCICIO DE GRAFOS
 
 }
